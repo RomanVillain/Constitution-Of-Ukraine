@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <link href="styles/style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-OUdihUb+5O5b6uLjymXO8Z5TDa0YVp41Lp2+1mohbDEe4K90KnSR5JySn8Mzj8L6Gwgg7ZlTXq3xgFeYz2LOvg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Дайджест Змін - Діджиталізована Конституція України</title>
+    <link rel="icon" type="image/jpg" href="assets/herb.jpg">
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            margin: 20px;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #00529b;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        header input[type="text"] {
+            padding: 10px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            width: 300px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        section {
+            margin: 20px 0;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+
+        section h2 {
+            color: #00529b;
+            display: flex;
+            align-items: center;
+        }
+
+        section i {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Діджиталізована Конституція України</h1>
+        <input type="text" id="searchInput" placeholder="Пошук..." oninput="searchContent()">
+    </header>
+
+    <section>
+        <h2><i class="fas fa-exclamation-circle"></i> Дайджест Змін</h2>
+        <p>Ознайомтеся з останніми змінами та поправками до Конституції України.</p>
+        <!-- Додайте ваш вміст тут -->
+    </section>
+
+    <footer>
+        &copy; 2024 Діджиталізована Конституція України
+    </footer>
+
+    <script>
+        function searchContent() {
+            var input, filter, sections, h2, p, i, txtValue;
+            input = document.getElementById("searchInput");
+            filter = input.value.toUpperCase();
+            sections = document.getElementsByTagName("section");
+
+            for (i = 0; i < sections.length; i++) {
+                h2 = sections[i].getElementsByTagName("h2")[0];
+                p = sections[i].getElementsByTagName("p")[0];
+                txtValue = (h2.textContent || h2.innerText) + " " + (p.textContent || p.innerText);
+
+                // Порівнюємо текст h2 та p із фільтром
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    sections[i].style.display = "";
+                } else {
+                    sections[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

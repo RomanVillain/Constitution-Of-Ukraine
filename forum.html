@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Форум для Обговорення</title>
+    <link rel="icon" type="image/jpg" href="assets/herb.jpg">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 20px;
+            padding: 0;
+        }
+
+        header {
+            background-color: #00529b;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        #forum-container {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+            padding: 20px;
+        }
+
+        .topic {
+            margin-bottom: 20px;
+        }
+
+        .topic h2 {
+            color: #00529b;
+        }
+
+        .post {
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+        .post p {
+            margin: 0;
+        }
+
+        .new-post-form {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+        }
+
+    
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Форум для Обговорення</h1>
+    </header>
+
+    <section id="forum-container">
+        <div class="topic">
+            <h2>Обговорення змін в Конституції</h2>
+            <div class="post">
+                <p>Нові зміни в Конституції важливі для нашої країни. Давайте обговоримо їхні плюси та мінуси.</p>
+            </div>
+            <div class="post">
+                <p>Я думаю, що ці зміни допоможуть у вирішенні проблем з правами громадян. Ваші думки?</p>
+            </div>
+            <div class="new-post-form">
+                <h3>Додати своє повідомлення:</h3>
+                <form>
+                    <textarea rows="4" cols="50" placeholder="Напишіть ваш коментар..." required></textarea>
+                    <br>
+                    <button type="submit">Надіслати</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="topic">
+            <h2>Петиція за нові права</h2>
+            <div class="post">
+                <p>Підтримайте петицію за встановлення нових прав громадян. Давайте обговоримо, чому це важливо.</p>
+            </div>
+            <div class="post">
+                <p>Я вважаю, що нові права можуть покращити життя нашого суспільства. Поділіться своїми думками.</p>
+            </div>
+            <div class="new-post-form">
+                <h3>Додати своє повідомлення:</h3>
+                <form>
+                    <textarea rows="4" cols="50" placeholder="Напишіть ваш коментар..." required></textarea>
+                    <br>
+                    <button type="submit">Надіслати</button>
+                </form>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
