@@ -2,62 +2,130 @@
 <html lang="uk">
 
 <head>
-    <link href="styles/style.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-OUdihUb+5O5b6uLjymXO8Z5TDa0YVp41Lp2+1mohbDEe4K90KnSR5JySn8Mzj8L6Gwgg7ZlTXq3xgFeYz2LOvg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Дайджест Змін - Діджиталізована Конституція України</title>
+    <title>Діджиталізована Конституція України</title>
     <link rel="icon" type="image/jpg" href="assets/herb.jpg">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" integrity="sha512-OUdihUb+5O5b6uLjymXO8Z5TDa0YVp41Lp2+1mohbDEe4K90KnSR5JySn8Mzj8L6Gwgg7ZlTXq3xgFeYz2LOvg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="styles/style.css" rel="stylesheet" type="text/css" />
     <style>
+        :root {
+            --primary-color: #003366;
+            --secondary-color: #00529b;
+            --background-color: #f8f9fa;
+            --text-color: #333;
+            --header-bg-color: #003366;
+            --header-text-color: #fff;
+            --section-bg-color: #fff;
+            --section-shadow-color: rgba(0, 0, 0, 0.1);
+            --border-radius: 5px;
+            --box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            --transition-speed: 0.3s;
+        }
+
         html, body {
             margin: 0;
             padding: 0;
             font-family: 'Roboto', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
         }
 
         body {
-            margin: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
         }
 
         header {
-            background-color: #00529b;
-            color: #fff;
+            background-color: var(--header-bg-color);
+            color: var(--header-text-color);
             text-align: center;
             padding: 20px;
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
+            width: 100%;
+            box-shadow: var(--box-shadow);
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        nav {
+            margin-top: 10px;
+        }
+
+        nav a {
+            color: var(--header-text-color);
+            margin: 0 10px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color var(--transition-speed);
+        }
+
+        nav a:hover {
+            color: var(--secondary-color);
         }
 
         header input[type="text"] {
             padding: 10px;
-            margin: 10px;
-            border: none;
+            margin-top: 10px;
+            border: 1px solid #ccc;
             border-radius: 5px;
             width: 300px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: box-shadow var(--transition-speed);
+        }
+
+        header input[type="text"]:focus {
+            box-shadow: 0 4px 8px var(--section-shadow-color);
+            outline: none;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            padding: 20px;
         }
 
         section {
             margin: 20px 0;
             padding: 20px;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            background-color: var(--section-bg-color);
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 8px var(--section-shadow-color);
+            transition: box-shadow var(--transition-speed);
         }
 
+        section:hover {
+            box-shadow: 0 8px 16px var(--section-shadow-color);
+        }
 
         section h2 {
-            color: #00529b;
+            color: var(--secondary-color);
             display: flex;
             align-items: center;
+            margin: 0 0 10px 0;
         }
 
         section i {
             margin-right: 10px;
+        }
+
+        footer {
+            padding: 10px 20px;
+            text-align: center;
+            background-color: var(--header-bg-color);
+            color: var(--header-text-color);
+            width: 100%;
+            margin-top: auto;
+        }
+
+        @media (max-width: 600px) {
+            header input[type="text"] {
+                width: 100%;
+                box-sizing: border-box;
+            }
         }
     </style>
 </head>
@@ -65,14 +133,48 @@
 <body>
     <header>
         <h1>Діджиталізована Конституція України</h1>
+        <nav>
+            <a href="#">Головна</a>
+            <a href="#">Про нас</a>
+            <a href="#">Контакти</a>
+            <a href="#">Пошук</a>
+        </nav>
         <input type="text" id="searchInput" placeholder="Пошук..." oninput="searchContent()">
     </header>
 
-    <section>
-        <h2><i class="fas fa-exclamation-circle"></i> Дайджест Змін</h2>
-        <p>Ознайомтеся з останніми змінами та поправками до Конституції України.</p>
-        <!-- Додайте ваш вміст тут -->
-    </section>
+    <div class="container">
+        <section>
+            <h2><i class="fas fa-exclamation-circle"></i> Дайджест Змін</h2>
+            <p>Ознайомтеся з останніми змінами та поправками до Конституції України.</p>
+            <ul>
+                <li>Стаття 1: Внесено зміни до основних положень.</li>
+                <li>Стаття 5: Нові поправки щодо прав та свобод громадян.</li>
+                <li>Стаття 10: Зміни в структурі органів державної влади.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2><i class="fas fa-book"></i> Основні Розділи</h2>
+            <p>Перегляньте основні розділи Конституції України:</p>
+            <ul>
+                <li>Розділ I: Загальні засади</li>
+                <li>Розділ II: Права, свободи та обов'язки людини і громадянина</li>
+                <li>Розділ III: Виборча система. Референдум</li>
+                <li>Розділ IV: Верховна Рада України</li>
+                <li>Розділ V: Президент України</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2><i class="fas fa-info-circle"></i> Корисні Посилання</h2>
+            <p>Додаткова інформація та ресурси:</p>
+            <ul>
+                <li><a href="#">Офіційний вебсайт Президента України</a></li>
+                <li><a href="#">Офіційний вебсайт Верховної Ради України</a></li>
+                <li><a href="#">Офіційний вебсайт Кабінету Міністрів України</a></li>
+            </ul>
+        </section>
+    </div>
 
     <footer>
         &copy; 2024 Діджиталізована Конституція України
@@ -90,7 +192,6 @@
                 p = sections[i].getElementsByTagName("p")[0];
                 txtValue = (h2.textContent || h2.innerText) + " " + (p.textContent || p.innerText);
 
-                // Порівнюємо текст h2 та p із фільтром
                 if (txtValue.toUpperCase().indexOf(filter) > -1) {
                     sections[i].style.display = "";
                 } else {

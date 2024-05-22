@@ -2,42 +2,85 @@
 <html lang="uk">
 
 <head>
-    <link href="styles/style.css" rel="stylesheet" type="text/css" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Діджиталізована Конституція України</title>
     <link rel="icon" type="image/jpg" href="assets/herb.jpg">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
         html, body {
             margin: 0;
             padding: 0;
             font-family: 'Roboto', sans-serif;
-        }
-
-        body {
-            margin: 20px;
-            padding: 0;
-            background-color: #f4f4f4;
+            background: url('assets/ukraine_background.jpeg') no-repeat center center fixed;
+            background-size: cover;
             color: #333;
         }
 
-        header {
-            background-color: #00529b;
-            color: #fff;
-            text-align: center;
-            padding: 50px;
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.8);
+            z-index: -1;
         }
 
-        header input[type="text"],
-        section a {
-            padding: 10px;
-            margin: 10px;
+        header {
+            background-color: rgba(0, 87, 183, 0.8); /* Прозорий фон */
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        nav button {
+            background-color: rgba(0, 87, 183, 0.8); /* Прозорий фон кнопок */
+            color: #fff;
             border: none;
             border-radius: 5px;
-            width: 100%;
+            padding: 10px 20px;
+            margin: 0 10px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+        }
+
+        nav button:hover {
+            background-color: rgba(0, 59, 122, 0.8);
+        }
+
+        header input[type="text"] {
+            padding: 10px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 5px;
+            width: calc(100% - 40px);
+            max-width: 600px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .container {
+            margin: 20px auto;
+            padding: 0 20px;
+            max-width: 800px;
         }
 
         section {
@@ -46,14 +89,21 @@
             background-color: #fff;
             border-radius: 10px;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
         }
 
         section h2 {
-            color: #00529b;
+            color: #0057b7;
+            margin-top: 0;
         }
 
         section a {
-            color: #00529b;
+            color: #0057b7;
             text-decoration: none;
             font-weight: bold;
         }
@@ -62,11 +112,61 @@
             text-decoration: underline;
         }
 
+        section p {
+            margin: 10px 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #0057b7;
+            color: #fff;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+        }
+
         @media (min-width: 600px) {
-            header input[type="text"],
-            section a {
-                width: 200px;
+            header input[type="text"] {
+                width: 400px;
             }
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 10px;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -74,48 +174,99 @@
 <body>
     <header>
         <h1>Діджиталізована Конституція України</h1>
+        <nav>
+            <button onclick="openModal('homeModal')">Головна</button>
+            <button onclick="openModal('aboutModal')">Про Нас</button>
+            <button onclick="openModal('contactModal')">Контакти</button>
+            <button onclick="openModal('searchModal')">Пошук</button>
+        </nav>
         <input type="text" id="searchInput" placeholder="Пошук..." oninput="searchContent()">
     </header>
 
-    <section>
-        <h2><a href="petitions.html">Електронні Петиції</a></h2>
-        <p>Тут ви можете подавати та підписувати електронні петиції щодо різних аспектів Конституції.</p>
-    </section>
+    <div class="container">
+        <section>
+            <h2><a href="petitions.html">Електронні Петиції</a></h2>
+            <p>Тут ви можете подавати та підписувати електронні петиції щодо різних аспектів Конституції.</p>
+        </section>
 
-    <section>
-        <h2><a href="interactive_text.html">Інтерактивний Текст Конституції</a></h2>
-        <p>Дізнайтеся більше про окремі статті та норми Конституції, використовуючи інтерактивний текст.</p>
-    </section>
+        <section>
+            <h2><a href="interactive_text.html">Інтерактивний Текст Конституції</a></h2>
+            <p>Дізнайтеся більше про окремі статті та норми Конституції, використовуючи інтерактивний текст.</p>
+        </section>
 
-    <section>
-        <h2><a href="forum.html">Форум для Обговорення</a></h2>
-        <p>Приєднуйтеся до обговорення з іншими громадянами щодо діджиталізації Конституції України.</p>
-    </section>
+        <section>
+            <h2><a href="forum.html">Форум для Обговорення</a></h2>
+            <p>Приєднуйтеся до обговорення з іншими громадянами щодо діджиталізації Конституції України.</p>
+        </section>
 
-    <section>
-        <h2><a href="testing.html">Інтерактивне тестування</a></h2>
-        <p>Перевірьте свої знання про Конституцію за допомогою тестування.</p>
-    </section>
+        <section>
+            <h2><a href="testing.html">Інтерактивне тестування</a></h2>
+            <p>Перевірте свої знання про Конституцію за допомогою тестування.</p>
+        </section>
 
-    <section>
-        <h2><a href="changes_digest.html">Дайджест Змін</a></h2>
-        <p>Ознайомтеся з останніми змінами та поправками до Конституції України.</p>
-    </section>
+        <section>
+            <h2><a href="changes_digest.html">Дайджест Змін</a></h2>
+            <p>Ознайомтеся з останніми змінами та поправками до Конституції України.</p>
+        </section>
+    </div>
 
+    <footer>
+        <p>&copy; 2024 Діджиталізована Конституція України. Всі права захищені.</p>
+    </footer>
+
+    <!-- Модальні вікна -->
+    <div id="homeModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('homeModal')">&times;</span>
+            <h2>Головна</h2>
+            <p>Ласкаво просимо до Діджиталізованої Конституції України! Тут ви знайдете всю інформацію про нашу Конституцію в зручному та доступному форматі.</p>
+        </div>
+    </div>
+
+    <div id="aboutModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('aboutModal')">&times;</span>
+            <h2>Про Нас</h2>
+            <p>Ми команда ентузіастів, які прагнуть зробити Конституцію України доступною та зрозумілою для кожного громадянина.</p>
+        </div>
+    </div>
+
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('contactModal')">&times;</span>
+            <h2>Контакти</h2>
+            <p>Зв'язатися з нами можна за адресою: info@constitution.ua або за телефоном +380 123 456 789.</p>
+        </div>
+    </div>
+
+    <div id="searchModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('searchModal')">&times;</span>
+            <h2>Пошук</h2>
+            <p>Використовуйте поле пошуку на головній сторінці для швидкого знаходження потрібної інформації.</p>
+        </div>
+    </div>
 
     <script>
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = "block";
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = "none";
+        }
+
         function searchContent() {
             var input, filter, sections, h2, p, i, txtValue;
             input = document.getElementById("searchInput");
             filter = input.value.toUpperCase();
             sections = document.getElementsByTagName("section");
-    
+
             for (i = 0; i < sections.length; i++) {
                 h2 = sections[i].getElementsByTagName("h2")[0];
                 p = sections[i].getElementsByTagName("p")[0];
                 txtValue = (h2.textContent || h2.innerText) + " " + (p.textContent || p.innerText);
-    
-                // Порівнюємо текст h2 та p із фільтром
+
                 if (txtValue.toUpperCase().indexOf(filter) > -1) {
                     sections[i].style.display = "";
                 } else {
@@ -127,4 +278,3 @@
 </body>
 
 </html>
-
