@@ -205,7 +205,7 @@
             background-color: #fefefe;
             margin: 15% auto;
             padding: 20px;
-            border:1px solid #888;
+            border: 1px solid #888;
             width: 80%;
             max-width: 600px;
             border-radius: 10px;
@@ -234,6 +234,49 @@
             left: 10px;
             top: 50%;
             transform: translateY(-50%);
+        }
+
+        /* Додано стилі для фондів */
+        .funds-container {
+            margin: 20px 0;
+            padding: 20px;
+            background-color: #f0f8ff;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .funds-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .funds-container h2 {
+            color: #ff4500;
+            margin-top: 0;
+        }
+
+        .funds-container ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .funds-container li {
+            margin-bottom: 10px;
+        }
+
+        .funds-container a {
+            color: #ff4500;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .funds-container a:hover {
+            text-decoration: underline;
+        }
+
+        .funds-container p {
+            margin: 10px 0;
         }
     </style>
 </head>
@@ -276,6 +319,33 @@
             <section>
                 <h2><a href="changes_digest.html">Дайджест Змін</a></h2>
                 <p>Ознайомтеся з останніми змінами та поправками до Конституції України.</p>
+            </section>
+
+            <!-- Додано контейнер для волонтерських військових фондів -->
+            <section class="funds-container">
+                <h2>Волонтерські Військові Фонди</h2>
+                <ul>
+                    <li>
+                        <p><strong>Повернись живим</strong></p>
+                        <p>Реквізити: <a href="https://savelife.in.ua/donate/" target="_blank">savelife.in.ua</a></p>
+                    </li>
+                    <li>
+                        <p><strong>Фонд Сергія Притули</strong></p>
+                        <p>Реквізити: <a href="https://prytulafoundation.org/" target="_blank">prytulafoundation.org</a></p>
+                    </li>
+                    <li>
+                        <p><strong>Армія SOS</strong></p>
+                        <p>Реквізити: <a href="https://armysos.com.ua/" target="_blank">armysos.com.ua</a></p>
+                    </li>
+                    <li>
+                        <p><strong>Razom for Ukraine</strong></p>
+                        <p>Реквізити: <a href="https://www.razomforukraine.org/" target="_blank">razomforukraine.org</a></p>
+                    </li>
+                    <li>
+                        <p><strong>Волонтерська організація "Дія"</strong></p>
+                        <p>Реквізити: <a href="https://www.diia.gov.ua/" target="_blank">diia.gov.ua</a></p>
+                    </li>
+                </ul>
             </section>
         </div>
 
@@ -322,7 +392,6 @@
     </div>
 
     <script>
-        
         function openModal(modalId) {
             document.getElementById(modalId).style.display = "block";
         }
@@ -392,4 +461,3 @@
 </body>
 
 </html>
-
