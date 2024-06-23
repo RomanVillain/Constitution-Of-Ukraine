@@ -227,7 +227,7 @@
     <header>
         <h1>Конституція України</h1>
         <nav>
-            <button onclick="openModal('homeModal')"><i class="fas fa-home"></i> Головна</button>
+            <button onclick="window.location.href='index.html'"><i class="fas fa-home"></i> Головна</button>
             <button onclick="openModal('aboutModal')"><i class="fas fa-info-circle"></i> Про Нас</button>
             <button onclick="openModal('contactModal')"><i class="fas fa-address-book"></i> Контакти</button>
             <button onclick="openModal('searchModal')"><i class="fas fa-search"></i> Пошук</button>
@@ -469,13 +469,43 @@
                                     </div>
 
 
+                                    <div id="contactModal" class="modal">
+                                        <div class="modal-content">
+                                            <span class="close" onclick="closeModal('contactModal')">&times;</span>
+                                            <h2>Контакти</h2>
+                                            <p>Зв'яжіться з нами.</p>
+                                        </div>
+                                    </div>
+                                
+                                    <div id="searchModal" class="modal">
+                                        <div class="modal-content">
+                                            <span class="close" onclick="closeModal('searchModal')">&times;</span>
+                                            <h2>Пошук</h2>
+                                            <p>Виконайте пошук по сайту.</p>
+                                        </div>
+                                    </div>
+                                
                                     <script>
+                                        function openModal(modalId) {
+                                            document.getElementById(modalId).style.display = 'flex';
+                                        }
+                                
+                                        function closeModal(modalId) {
+                                            document.getElementById(modalId).style.display = 'none';
+                                        }
+                                
+                                        window.onclick = function(event) {
+                                            if (event.target.className === 'modal') {
+                                                event.target.style.display = 'none';
+                                            }
+                                        }
+                                
                                         function searchContent() {
                                             var input, filter, articles, i, txtValue, articleText, articleElements;
                                             input = document.getElementById("searchInput");
                                             filter = input.value.toUpperCase();
                                             articles = document.getElementsByClassName("article");
-                                    
+                                
                                             for (i = 0; i < articles.length; i++) {
                                                 articleText = articles[i].innerText || articles[i].textContent;
                                                 if (articleText.toUpperCase().indexOf(filter) > -1) {
@@ -486,12 +516,15 @@
                                                 }
                                             }
                                         }
-                                    
+                                
                                         function highlightText(element, searchText) {
                                             var innerHTML = element.innerHTML;
                                             var regex = new RegExp('(' + searchText + ')', 'gi');
                                             element.innerHTML = innerHTML.replace(regex, '<span class="highlight">$1</span>');
                                         }
                                     </script>
+                                </body>
+                                
+                                </html>
                                     
                 

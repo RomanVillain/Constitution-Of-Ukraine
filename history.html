@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Історія створення Конституції України</title>
+    <link rel="icon" type="image/jpg" href="assets/herb.jpg">
+    <style>
+        /* Загальні стилі */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('assets/konstytutsii.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+        }
+
+        .overlay {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            margin: 0 auto;
+            max-width: 1200px;
+        }
+
+        header {
+            background: linear-gradient(to right, #0057b7, #1e3c72);
+            color: #fff;
+            text-align: center;
+            padding: 40px 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        nav a {
+            background: #0057b7;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+            font-size: 1em;
+            text-align: center;
+            display: inline-block;
+        }
+
+        nav a:hover {
+            background: #004494;
+            transform: scale(1.05);
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .content {
+            flex: 3;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .content section {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            padding: 20px;
+            transition: transform 0.2s;
+        }
+
+        .content section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        .content h2 {
+            color: #0057b7;
+            font-size: 1.8em;
+            margin-top: 0;
+        }
+
+        .content img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            transition: transform 0.3s;
+        }
+
+        .content img:hover {
+            transform: scale(1.05);
+        }
+
+        .content p {
+            line-height: 1.6;
+            color: #555;
+        }
+
+        aside {
+            flex: 1;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 20px;
+            margin-left: 20px;
+            box-sizing: border-box;
+        }
+
+        aside h2 {
+            color: #0057b7;
+            font-size: 1.6em;
+            margin-top: 0;
+        }
+
+        aside ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        aside ul li {
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        aside ul li img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        aside ul li a {
+            color: #0057b7;
+            text-decoration: none;
+            font-weight: bold;
+            text-align: center;
+            transition: color 0.3s;
+        }
+
+        aside ul li a:hover {
+            color: #003f7f;
+        }
+
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            border-radius: 10px;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay">
+        <header>
+            <h1>Історія створення Конституції України</h1>
+            <nav>
+                <a href="index.html">Головна</a>
+                <a href="#about" onclick="openModal('aboutModal')">Про Нас</a>
+                <a href="#contact" onclick="openModal('contactModal')">Контакти</a>
+                <a href="#search" onclick="openModal('searchModal')">Пошук</a>
+            </nav>
+        </header>
+
+        <div class="container">
+            <div class="content">
+                <section id="home">
+                    <h2>Початок шляху: Доба Козацтва</h2>
+                    <img src="assets/zagolovok.jpg" alt="Запорізька Січ">
+                    <p>У середині XVII століття, під час гетьманства Б. Хмельницького, почалася боротьба за незалежність України. Важливим документом цієї епохи став "Конституція Пилипа Орлика", який був прийнятий у 1710 році.</p>
+                </section>
+
+                <section id="about">
+                    <h2>Період Російської та Австрійської імперій</h2>
+                    <img src="assets/sheva.jpg" alt="Російські війська на українських землях">
+                    <p>У 18-19 століттях українські землі перебували під владою Російської та Австрійської імперій. В цей період відбувалися численні спроби розробки власної конституції, але всі вони не увінчалися успіхом.</p>
+                </section>
+
+                <section id="contact">
+                    <h2>Сучасна історія: Незалежна Україна</h2>
+                    <img src="assets/prunyato.jpg" alt="Верховна Рада України">
+                    <p>24 червня 1996 року Верховна Рада України прийняла Основний Закон - Конституцію України. Цей день став історичним для нашої держави, бо документ закріпив суверенітет і незалежність України.</p>
+                </section>
+
+                <section id="search">
+                    <h2>Символіка та Зміни</h2>
+                    <img src="assets/rada.jpg" alt="Стаття 1 Конституції України">
+                    <p>З моменту прийняття Конституції, в неї вносилися численні поправки, які відображають зміни в політичному та соціальному житті країни. У 2004 році було прийнято зміни, що значно змінили механізм влади в Україні.</p>
+                </section>
+            </div>
+
+            <aside>
+                <h2>Символічні Зображення</h2>
+                <ul>
+                    <li>
+                        <img src="assets/plast.jpg" alt="Пласт - українська скаутська організація">
+                        <a href="https://uk.wikipedia.org/wiki/Пласт_(організація)">Пласт</a>
+                    </li>
+                    <li>
+                        <img src="assets/evro.jpg" alt="Євро 2012 в Україні">
+                        <a href="https://uk.wikipedia.org/wiki/Євро_2012_в_Україні">Євро 2012 в Україні</a>
+                    </li>
+                    <li>
+                        <img src="assets/maydan.jpg" alt="Євромайдан 2014">
+                        <a href="https://uk.wikipedia.org/wiki/Євромайдан">Євромайдан</a>
+                    </li>
+                </ul>
+            </aside>
+        </div>
+
+        <footer>
+            <p>&copy; 2024 Діджиталізована Конституція України. Всі права захищені.</p>
+        </footer>
+    </div>
+
+    <!-- Модальні вікна -->
+    <div id="aboutModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('aboutModal')">&times;</span>
+            <h2>Про Нас</h2>
+            <p>Це мій проєкт, написаний для дипломної роботи, темою якої є зробити Конституцію України доступною та зрозумілою для кожного громадянина.</p>
+        </div>
+    </div>
+
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('contactModal')">&times;</span>
+            <h2>Контакти</h2>
+            <p>Зв'язатися з нами можна за адресою: lviv_vpu29@ukr.net або за тел. +38 (032) 233-25-07 тел. +38 (093) 104-12-46</p>
+            
+        </div>
+    </div>
+
+    <div id="searchModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('searchModal')">&times;</span>
+            <h2>Пошук</h2>
+            <p>Використовуйте поле пошуку на головній сторінці для швидкого знаходження потрібної вам інформації.</p>
+            <input type="text" placeholder="Ваш пошуковий запит...">
+        </div>
+    </div>
+
+    <script>
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = "block";
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
